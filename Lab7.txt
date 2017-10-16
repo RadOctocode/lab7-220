@@ -1,0 +1,50 @@
+number of instructions
+reverse_C:105 i know people got like 30-40 but the important thing here is that 
+	rev_C>rev_asm
+reverse_asm:12
+10
+ASM: 0 sec, 000000 micro sec
+C: 0 sec, 000000 micro sec
+
+100
+ASM: 0 sec, 000000 micro sec
+C: 0 sec, 000001 micro sec
+
+1000
+ASM: 0 sec, 000004 micro sec
+C: 0 sec, 000010 micro sec
+
+10000
+ASM: 0 sec, 000041 micro sec
+C: 0 sec, 000099 micro sec
+
+100000
+ASM: 0 sec, 000389 micro sec
+C: 0 sec, 000882 micro sec
+
+1000000
+ASM: 0 sec, 003221 micro sec
+C: 0 sec, 005710 micro sec
+
+
+optimized
+10 elems
+ASM 85ms
+C 5ms
+100 elms
+ASM: 0 sec, 000079 micro sec
+C: 0 sec, 000016 micro sec
+1000 el
+ASM: 0 sec, 000169 micro sec
+C: 0 sec, 000115 micro sec
+10000
+ASM: 0 sec, 001085 micro sec
+C: 0 sec, 001032 micro sec
+100000
+ASM: 0 sec, 010217 micro sec
+C: 0 sec, 009593 micro sec
+1000000
+ASM: 0 sec, 085007 micro sec
+C: 0 sec, 063851 micro sec
+
+

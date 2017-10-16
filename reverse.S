@@ -8,25 +8,27 @@ reverse_asm:
     mov ebx, eax
     mov ecx, eax
     mov edx, eax
-    mov eax, [esp + 8]
+    mov eax, [esp + 0x8]
     cmp eax, 0
     je null_ret
+    add eax, [esp + 0xC]
+    mov ebx, eax
+
+
+#ebx head, ecx for nextptr, edx for newhead_ptr
+while_start:
+    cmp ebx, 0x0
+    je while_done
+    mov ecx, [ebx]
+    mov [ebx], edx
+    mov edx, ebx
+    mov ebx, ecx
+    jmp while_start
+
+while_done:
+    mov eax, edx
+    sub eax, [esp+0xC]
 
 null_ret:
     pop ebx
     ret
-    add eax, [esp + 12]
-    mov ebx, eax
-
-while_start:
-    cmp headptr, 0x0
-    je while_done
-    mov nextptr, [headptr]
-    mov [headptr], new_headptr
-    mov new_headptr, headptr
-    mov headptr, nextptr
-    jmp while_start
-
-while_done:
-    mov eax, new_headptr
-    sub eax, [esp+12]

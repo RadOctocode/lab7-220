@@ -6,7 +6,7 @@
 
 extern Node* reverse_asm(Node *head, unsigned int offset);
 
-#define NUM_NODES 20
+#define NUM_NODES 10
 
 int timeval_subtract(struct timeval *result, struct timeval *t2, struct timeval *t1)
 {
@@ -92,11 +92,24 @@ int main()
 	
 	/* We ask the compiler: "If 0 were the address of a Node, what is the address of ptr field?" */
 	offset = (unsigned int)(&((Node *)0)->ptr);
-	
+
 	head = gen_rand_list(NUM_NODES);
-	print_list(head);
+	gettimeofday(&tvStart, NULL);	
+	
 	revhead = reverse_asm(head, offset);
-	printf("****REV****\n");
-	print_list(revhead);
+	gettimeofday(&tvEnd, NULL);
+	timeval_subtract(&tvDiff, &tvEnd, &tvStart);
+	timeval_print("ASM:", &tvDiff);
+
+	head = gen_rand_list(NUM_NODES);
+	gettimeofday(&tvStart, NULL);	
+	revhead = reverse_C(head);
+	gettimeofday(&tvEnd, NULL);
+	timeval_subtract(&tvDiff, &tvEnd, &tvStart);
+	timeval_print("C:", &tvDiff);
+
+
+
+
 	return 0; 
 }
